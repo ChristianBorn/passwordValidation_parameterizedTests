@@ -13,6 +13,7 @@ class MainTest {
             "passwor, false",
             "password123, true"
     })
+
     void checkPasswordLength(String password, Boolean expected) {
         //When
         Boolean actual = Main.checkPasswordLength(password);
@@ -56,5 +57,4 @@ class MainTest {
         //Then
         assertEquals(expected, actual);
     }
-
 }
