@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -54,6 +55,22 @@ class MainTest {
     void checkPasswordUppercase(String password, Boolean expected) {
         //When
         Boolean actual = Main.checkPasswordUppercase(password);
+        //Then
+        assertEquals(expected, actual);
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "password, false",
+            "PASSWORD, false",
+            "PASSWoRD, false",
+            "PASS1, false",
+            "123, false",
+            "123456789, false",
+            "PaSSWORD123, true"
+    })
+    void validatePassword(String password, Boolean expected) {
+        //When
+        Boolean actual = Main.validatePassword(password);
         //Then
         assertEquals(expected, actual);
     }

@@ -29,4 +29,11 @@ public class Main {
         Matcher matcher = pattern.matcher(password);
         return matcher.find();
     }
+
+    public static Boolean validatePassword(String password) {
+        return checkPasswordLength(password) &&
+                checkPasswordNumber(password) &&
+                checkPasswordLowercase(password) &&
+                checkPasswordUppercase(password);
+    }
 }
